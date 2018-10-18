@@ -7,13 +7,12 @@
 <body>
     <h1>Welcome to Rack-O!</h1>
     
-    <form>
+    <form onsubmit="return square()">
         <label>Input a number to find the square:</label>
-        <input type="number" id="userInput" name="number_input">
-        <input type="submit" onclick="square(results);">
+        <input type="number" id="userInput">
     </form>
-    
-    <h3 id="result"></h3>
+    <input type="submit" onclick="square()">
+    <h3>Your number squared is: <span id="result"></span></h3>
     <script src="app.js"></script>
 </body>
 </html>
