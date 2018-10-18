@@ -1,7 +1,7 @@
-function square() {
-    return 2 * 2;
+function square(num) {
+    return num * num;
 };
 
-var results = document.querySelector("h3");
+var results = document.getElementById("userInput").value;
 
-results.textContent = square()
+document.getElementById("result").innerHTML = results;
