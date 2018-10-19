@@ -20,6 +20,9 @@ function shuffle(a) {
 var startGame = function () {
     "use strict";
     var numCards = 60, numHand = 10, i;
+    player1 = [];
+    player2 = [];
+    discardPile = [];
     
     // Creates a deck of cards from 1 to 60
     for (i = 1; i <= numCards; i += 1) {
