@@ -1,12 +1,13 @@
-deck = [];
-player1 = [];
-player2 = [];
-discardPile = [];
+var deck = [];
+var player1 = [];
+var player2 = [];
+var discardPile = [];
 
 function shuffle(a) {
+    "use strict";
     var j, x, i;
     
-    for (i = a.length - 1; i > 0; i--) {
+    for (i = a.length - 1; i > 0; i -= 1) {
         j = Math.floor(Math.random() * (i + 1));
         x = a[i];
         a[i] = a[j];
@@ -16,12 +17,12 @@ function shuffle(a) {
     return a;
 }
 
-var startGame = function() {
-    numCards = 60;
-    numHand = 10;
+var startGame = function () {
+    "use strict";
+    var numCards = 60, numHand = 10, i;
     
     // Creates a deck of cards from 1 to 60
-    for(var i = 1; i <= numCards; i++) {
+    for (i = 1; i <= numCards; i += 1) {
         deck.push(i);
     }
     
@@ -29,7 +30,7 @@ var startGame = function() {
     shuffle(deck);
     
     // Deal 10 cards to each player, alternating between each one.  Takes top number off of deck array.
-    for (var i = 0; i < numHand; i++) {
+    for (i = 0; i < numHand; i += 1) {
         player1.push(deck.shift());
         player2.push(deck.shift());
     }
@@ -38,11 +39,10 @@ var startGame = function() {
     
     document.getElementById("player1").innerHTML = player1;
     document.getElementById("player2").innerHTML = player2;
-    document.getElementById("deck").innerHTML = deck;
+    // document.getElementById("deck").innerHTML = deck;
     document.getElementById("discard").innerHTML = discardPile;
-}
+};
 
-console.log(player1);
 
 
 
