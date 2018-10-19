@@ -1,11 +1,13 @@
 function shuffle(a) {
     var j, x, i;
+    
     for (i = a.length - 1; i > 0; i--) {
         j = Math.floor(Math.random() * (i + 1));
         x = a[i];
         a[i] = a[j];
         a[j] = x;
     }
+    
     return a;
 }
 
@@ -15,14 +17,21 @@ function startGame() {
     player2 = [];
     numCards = 60;
     numHand = 10;
+    
+    // Creates a deck of cards from 1 to 60
     for(var i = 1; i <= numCards; i++) {
         deck.push(i);
     }
+    
+    // Shuffles the deck (array)
     shuffle(deck);
+    
+    // Deal 10 cards to each player, alternating between each one.  Takes top number off of deck array.
     for (var i = 0; i < numHand; i++) {
         player1.push(deck.shift());
         player2.push(deck.shift());
     }
+    
     document.getElementById("player1").innerHTML = player1;
     document.getElementById("player2").innerHTML = player2;
     document.getElementById("deck").innerHTML = deck;
