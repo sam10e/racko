@@ -1,3 +1,8 @@
+deck = [];
+player1 = [];
+player2 = [];
+discardPile = [];
+
 function shuffle(a) {
     var j, x, i;
     
@@ -11,10 +16,7 @@ function shuffle(a) {
     return a;
 }
 
-function startGame() {
-    deck = [];
-    player1 = [];
-    player2 = [];
+var startGame = function() {
     numCards = 60;
     numHand = 10;
     
@@ -32,12 +34,15 @@ function startGame() {
         player2.push(deck.shift());
     }
     
+    discardPile.push(deck.shift()); // Add starting card to discard pile
+    
     document.getElementById("player1").innerHTML = player1;
     document.getElementById("player2").innerHTML = player2;
     document.getElementById("deck").innerHTML = deck;
+    document.getElementById("discard").innerHTML = discardPile;
 }
 
-
+console.log(player1);
 
 
 
