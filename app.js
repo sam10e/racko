@@ -3,6 +3,7 @@ var player1 = [];
 // var player2 = [];
 var discardPile = [];
 var drawnCard;
+console.log(drawnCard);
 
 function shuffle(a) {
     "use strict";
@@ -24,6 +25,7 @@ var startGame = function () {
     player1 = [];
     // player2 = [];
     discardPile = [];
+    drawnCard = null;
     
     // Creates a deck of cards from 1 to 60
     for (i = 1; i <= numCards; i += 1) {
@@ -54,14 +56,22 @@ var drawCard = function () {
 
 var drawDiscard = function () {
     
-    drawnCard = discardPile.shift();
+    drawnCard = discardPile.pop();
     document.getElementById("drawn").innerHTML = drawnCard;
+    document.getElementById("discard").innerHTML = discardPile[discardPile.length - 1];
     
     // Input number that they want to replace in their hand
         // Iterate thru hand to check for number to replace:
             // set new card to replaced card 
             // place replaced card in discard pile
 }
+
+var discardDrawn = function () {
+    discardPile.push(drawnCard);
+    drawnCard = null;
+    document.getElementById("discard").innerHTML = discardPile[discardPile.length - 1];
+    document.getElementById("drawn").innerHTML = drawnCard;
+};
 
 var keep_or_discard = function () {
     // If player wants to keep the drawn card:
