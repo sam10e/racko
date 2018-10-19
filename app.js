@@ -1,7 +1,8 @@
 var deck = [];
 var player1 = [];
-var player2 = [];
+// var player2 = [];
 var discardPile = [];
+var drawnCard;
 
 function shuffle(a) {
     "use strict";
@@ -21,7 +22,7 @@ var startGame = function () {
     "use strict";
     var numCards = 60, numHand = 10, i;
     player1 = [];
-    player2 = [];
+    // player2 = [];
     discardPile = [];
     
     // Creates a deck of cards from 1 to 60
@@ -35,49 +36,39 @@ var startGame = function () {
     // Deal 10 cards to each player, alternating between each one.  Takes top number off of deck array.
     for (i = 0; i < numHand; i += 1) {
         player1.push(deck.shift());
-        player2.push(deck.shift());
+        // player2.push(deck.shift());
     }
     
     discardPile.push(deck.shift()); // Add starting card to discard pile
     
     document.getElementById("player1").innerHTML = player1;
-    document.getElementById("player2").innerHTML = player2;
-    // document.getElementById("deck").innerHTML = deck;
+    // document.getElementById("player2").innerHTML = player2;
     document.getElementById("discard").innerHTML = discardPile;
 };
 
+var drawCard = function () {
+    
+    drawnCard = deck.shift();
+    document.getElementById("drawn").innerHTML = drawnCard;
+};
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-    HTML for square function
-    <form onsubmit="return square()">
-        <label>Input a number to find the square:</label>
-        <input type="number" id="userInput">
-    </form>
-    <input type="submit" onclick="square()">
-    <h3>Your number squared is: <span id="result"></span></h3>
-
-// JavaScript for square function
-function square() {
-    var input = document.getElementById("userInput").value;
-    console.log(input);
-    var input_squared = input * input;
-    document.getElementById("result").innerHTML = input_squared; 
+var drawDiscard = function () {
+    
+    drawnCard = discardPile.shift();
+    document.getElementById("drawn").innerHTML = drawnCard;
+    
+    // Input number that they want to replace in their hand
+        // Iterate thru hand to check for number to replace:
+            // set new card to replaced card 
+            // place replaced card in discard pile
 }
-*/
+
+var keep_or_discard = function () {
+    // If player wants to keep the drawn card:
+        // Input number that they want to replace in their hand
+        // Iterate thru hand to check for number to replace:
+            // set new card to replaced card 
+            // place replaced card in discard pile
+    // Else if player wants to discard:
+        // Place drawn card on top of discarded pile
+};
