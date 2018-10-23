@@ -76,12 +76,15 @@ var discardDrawn = function () {
 
 var keep_or_discard = function () {
     "use strict";
+    // Input number that they want to replace in their hand
     var card_to_replace = document.getElementById("replace").value, i;
-    // If player wants to keep the drawn card:
+    // Iterate thru hand to check for number to replace:
     for (i = 0; i < player1.length; i += 1) {
         if (player1[i] == card_to_replace) {
+            // set new card to replaced card 
             player1[i] = drawnCard;
             drawnCard = null;
+            // place replaced card in discard pile
             discardPile.push(card_to_replace);
             document.getElementById("discard").innerHTML = discardPile[discardPile.length - 1];
             document.getElementById("drawn").innerHTML = drawnCard;
@@ -89,10 +92,7 @@ var keep_or_discard = function () {
             document.getElementById("replace").value = null;
         }
     }
-        // Input number that they want to replace in their hand
-        // Iterate thru hand to check for number to replace:
-            // set new card to replaced card 
-            // place replaced card in discard pile
-    // Else if player wants to discard:
-        // Place drawn card on top of discarded pile
+    // Check for errors.  
+        // If card not found in hand, try again
+        // 
 };
