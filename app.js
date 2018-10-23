@@ -3,7 +3,6 @@ var player1 = [];
 // var player2 = [];
 var discardPile = [];
 var drawnCard;
-console.log(drawnCard);
 
 function shuffle(a) {
     "use strict";
@@ -46,16 +45,17 @@ var startGame = function () {
     document.getElementById("player1").innerHTML = player1;
     // document.getElementById("player2").innerHTML = player2;
     document.getElementById("discard").innerHTML = discardPile;
+    document.getElementById("drawn").innerHTML = drawnCard;
 };
 
 var drawCard = function () {
-    
+    "use strict";
     drawnCard = deck.shift();
     document.getElementById("drawn").innerHTML = drawnCard;
 };
 
 var drawDiscard = function () {
-    
+    "use strict";
     drawnCard = discardPile.pop();
     document.getElementById("drawn").innerHTML = drawnCard;
     document.getElementById("discard").innerHTML = discardPile[discardPile.length - 1];
@@ -64,9 +64,10 @@ var drawDiscard = function () {
         // Iterate thru hand to check for number to replace:
             // set new card to replaced card 
             // place replaced card in discard pile
-}
+};
 
 var discardDrawn = function () {
+    "use strict";
     discardPile.push(drawnCard);
     drawnCard = null;
     document.getElementById("discard").innerHTML = discardPile[discardPile.length - 1];
@@ -74,7 +75,20 @@ var discardDrawn = function () {
 };
 
 var keep_or_discard = function () {
+    "use strict";
+    var card_to_replace = document.getElementById("replace").value, i;
     // If player wants to keep the drawn card:
+    for (i = 0; i < player1.length; i += 1) {
+        if (player1[i] == card_to_replace) {
+            player1[i] = drawnCard;
+            drawnCard = null;
+            discardPile.push(card_to_replace);
+            document.getElementById("discard").innerHTML = discardPile[discardPile.length - 1];
+            document.getElementById("drawn").innerHTML = drawnCard;
+            document.getElementById("player1").innerHTML = player1;
+            document.getElementById("replace").value = null;
+        }
+    }
         // Input number that they want to replace in their hand
         // Iterate thru hand to check for number to replace:
             // set new card to replaced card 

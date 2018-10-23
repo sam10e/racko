@@ -33,6 +33,14 @@
     <button id="draw-deck" onclick="drawCard()">Draw From Deck</button>
     <button id="draw-discard" onclick="drawDiscard()">Draw From Discard</button>
     <button id="discard-drawn" onclick="discardDrawn()">Discard</button>
+    
+    <div id="decision">
+        <form onsubmit="keep_or_discard()">
+            <br><input type="number" id="replace">
+        </form>
+        <input type="submit" onclick="keep_or_discard()">  Replace Card
+    </div>
+    
     <script src="app.js"></script>
 </body>
 </html>
